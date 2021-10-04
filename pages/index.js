@@ -33,12 +33,9 @@ export const getStaticProps = async () => {
 	try {
 		const res = await fetch(`${server}/api/stories/1`);
 		response = await res.json();
-		console.log("response from API: ", response.tempResponse);
 		for await (let itemId of response.tempResponse) {
-			console.log("in for await");
 			const itemRes = await fetch(`${server}/api/item/${itemId}`);
 			const item = await itemRes.json();
-			console.log("storyResponse in getStaticProps: ", item);
 			itemResponse.push(item);
 		}
 	} catch (error) {

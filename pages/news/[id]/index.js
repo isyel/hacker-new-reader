@@ -8,6 +8,7 @@ import styles from "../../../styles/Home.module.css";
 const News = ({ response, itemResponse, errorMessage }) => {
 	const router = useRouter();
 	const { id } = router.query;
+	const startingId = +id > 1 ? 30 * (+id - 1) : 1;
 	return (
 		<>
 			<Head>
@@ -21,7 +22,11 @@ const News = ({ response, itemResponse, errorMessage }) => {
 			{errorMessage && <h3>{errorMessage}</h3>}
 			<main className={styles.main}>
 				<Header />
-				<NewsItemList items={itemResponse} currentPage={+id} />
+				<NewsItemList
+					items={itemResponse}
+					currentPage={+id}
+					startingId={startingId}
+				/>
 			</main>
 		</>
 	);

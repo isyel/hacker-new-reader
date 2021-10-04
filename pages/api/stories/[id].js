@@ -6,8 +6,6 @@ export default async ({ query: { id } }, res) => {
 	let tempResponse = [];
 	let end = 30 * +id;
 	let start = end - 30;
-	console.log("start: ", start);
-	console.log("end: ", end);
 	let errorMessage = "";
 	try {
 		const res = await fetch(`${apiUrl}topstories.json`);
