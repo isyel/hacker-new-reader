@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "./NewsItem.module.css";
 import moment from "moment";
-import { ReactTinyLink } from "react-tiny-link";
+import { LinkPreview } from "@dhaiwat10/react-link-preview";
 
 const NewsItem = (props) => {
 	const { item, id } = props;
@@ -38,15 +38,9 @@ const NewsItem = (props) => {
 					</div>
 				</>
 			)}
-			{isShown && (
+			{isShown && window && (
 				<div className={styles.previewCard}>
-					<ReactTinyLink
-						cardSize="large"
-						showGraphic={true}
-						maxLine={2}
-						minLine={1}
-						url={item.url}
-					/>
+					<LinkPreview url={item.url} width="400px" />;
 				</div>
 			)}
 		</a>
