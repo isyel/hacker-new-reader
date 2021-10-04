@@ -1,0 +1,39 @@
+.previewCard {
+	position: absolute;
+	top: 1px;
+	left: 20px;
+	min-height: 200px;
+	min-width: 300px;
+	background-color: red;
+	z-index: 99;
+}
+
+.card {
+	width: 150px;
+	display: none;
+	font-size: 10px;
+	color: black;
+
+	position: absolute;
+	z-index: 100;
+
+	bottom: 30px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.cardImage {
+	width: 150px;
+}
+
+.cardBody {
+	font-size: medium;
+}
+
+.cardTitle {
+	font-size: 14px;
+}
+
+.cardText {
+	font-size: small;
+}
