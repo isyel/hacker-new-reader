@@ -37,13 +37,13 @@ export const getStaticProps = async (context) => {
 	let itemResponse = [];
 	let errorMessage = "";
 	try {
-		// const res = await fetch(`${server}/api/stories/${context.params.id}`);
-		// response = await res.json();
-		// for await (let itemId of response.tempResponse) {
-		// 	const itemRes = await fetch(`${server}/api/item/${itemId}`);
-		// 	const item = await itemRes.json();
-		// 	itemResponse.push(item);
-		// }
+		const res = await fetch(`${server}/api/stories/${context.params.id}`);
+		response = await res.json();
+		for await (let itemId of response.tempResponse) {
+			const itemRes = await fetch(`${server}/api/item/${itemId}`);
+			const item = await itemRes.json();
+			itemResponse.push(item);
+		}
 	} catch (error) {
 		errorMessage = error.message;
 	}
@@ -58,10 +58,10 @@ export const getStaticProps = async (context) => {
 };
 
 export const getStaticPaths = async () => {
-	// const res = await fetch(`${server}/api/stories`);
+	const res = await fetch(`${server}/api/stories`);
 
-	const items = [];
-	const noOfPages = items.tempResponse?.length || [] / 30;
+	const items = await res.json();
+	const noOfPages = items.tempResponse.length / 30;
 	let ids = [];
 
 	for (let i = 1; i <= noOfPages; i++) {
