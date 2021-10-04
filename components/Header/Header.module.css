@@ -1,0 +1,19 @@
+.header {
+	background-color: #ff6600;
+	height: 30px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	padding: 0px 0.3em;
+}
+
+.title {
+	font-weight: bold;
+}
+
+.menulist {
+	display: flex;
+	gap: 0.5em;
+	align-items: center;
+}
