@@ -1,5 +1,7 @@
+import { useState } from "react";
 import styles from "./NewsItem.module.css";
 import moment from "moment";
+import { ReactTinyLink } from "react-tiny-link";
 
 const NewsItem = (props) => {
 	const { item, id } = props;
@@ -9,12 +11,16 @@ const NewsItem = (props) => {
 
 	const formattedTime = moment(item?.time).fromNow();
 
+	const [isShown, setIsShown] = useState(false);
+
 	return (
 		<a
 			href={item.url}
 			target="_blank"
 			className={styles.newsItem}
-			rel="noreferrer">
+			rel="noreferrer"
+			onMouseEnter={() => setIsShown(true)}
+			onMouseLeave={() => setIsShown(false)}>
 			{item && (
 				<>
 					<span className={styles.id}>{id}.</span>
@@ -31,6 +37,17 @@ const NewsItem = (props) => {
 						</div>
 					</div>
 				</>
+			)}
+			{isShown && (
+				<div className={styles.previewCard}>
+					<ReactTinyLink
+						cardSize="large"
+						showGraphic={true}
+						maxLine={2}
+						minLine={1}
+						url={item.url}
+					/>
+				</div>
 			)}
 		</a>
 	);

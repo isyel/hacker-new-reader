@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 import styles from "./Header.module.css";
 
@@ -15,7 +16,9 @@ const Header = () => {
 					/>
 				</div>
 
-				<span className={styles.title}>Hacker News</span>
+				<Link href="/" className={styles.title}>
+					Hacker News
+				</Link>
 				{menu.map((menuItem, index) => (
 					<span key={index} className={styles.menu}>
 						{menuItem} {index !== menu.length - 1 && "|"}
