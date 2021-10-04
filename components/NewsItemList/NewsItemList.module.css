@@ -1,0 +1,6 @@
+.newsList {
+	display: flex;
+	gap: 0.3em;
+	flex-direction: column;
+	padding: 0.5em;
+}
