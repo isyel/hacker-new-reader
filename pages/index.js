@@ -20,7 +20,7 @@ export default function Home({ response, itemResponse, errorMessage }) {
 
 			<main className={styles.main}>
 				<Header />
-				<NewsItemList items={itemResponse} currentPage={1} />
+				<NewsItemList items={itemResponse} currentPage={1} startingId={0} />
 			</main>
 		</div>
 	);
