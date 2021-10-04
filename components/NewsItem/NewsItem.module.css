@@ -7,8 +7,15 @@
 
 .newsTitle {
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
 	gap: 0.8em;
+}
+
+@media (max-width: 480px) {
+	.newsTitle {
+		gap: 0.05em;
+	}
 }
 
 .bold {
@@ -33,4 +40,6 @@
 	display: flex;
 	z-index: 99;
 	max-width: 350px;
+	left: 20px;
+	top: 12px;
 }

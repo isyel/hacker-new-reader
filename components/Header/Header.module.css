@@ -2,10 +2,17 @@
 	background-color: #ff6600;
 	height: 25px;
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;
 	padding: 0px 0.3em;
+}
+
+@media (max-width: 480px) {
+	.menu {
+		display: none;
+	}
 }
 
 .logo {
