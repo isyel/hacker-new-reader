@@ -60,7 +60,7 @@ export const getStaticProps = async (context) => {
 export const getStaticPaths = async () => {
 	// const res = await fetch(`${server}/api/stories`);
 
-	const items = (await res?.json()) || [];
+	const items = [];
 	const noOfPages = items.tempResponse.length / 30;
 	let ids = [];
 
