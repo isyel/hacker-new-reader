@@ -1,14 +1,10 @@
 import Head from "next/head";
-import Image from "next/image";
 import Header from "../components/Header/Header";
 import NewsItemList from "../components/NewsItemList/NewsItemList";
 import { server } from "../config";
 import styles from "../styles/Home.module.css";
 
 export default function Home({ response, itemResponse, errorMessage }) {
-	console.log("response: ", response);
-	console.log("itemResponse: ", itemResponse);
-	console.log("errorMessage: ", errorMessage);
 	return (
 		<div className={styles.container}>
 			<Head>
@@ -20,9 +16,11 @@ export default function Home({ response, itemResponse, errorMessage }) {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 
+			{errorMessage && <h3>{errorMessage}</h3>}
+
 			<main className={styles.main}>
 				<Header />
-				<NewsItemList items={itemResponse} />
+				<NewsItemList items={itemResponse} currentPage={1} />
 			</main>
 		</div>
 	);

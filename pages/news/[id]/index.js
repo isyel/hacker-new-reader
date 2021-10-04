@@ -1,9 +1,30 @@
+import { useRouter } from "next/dist/client/router";
+import Head from "next/head";
+import Header from "../../../components/Header/Header";
+import NewsItemList from "../../../components/NewsItemList/NewsItemList";
 import { server } from "../../../config";
+import styles from "../../../styles/Home.module.css";
 
 const News = ({ response, itemResponse, errorMessage }) => {
-	console.log("apiResponse: ", response);
-	// console.log("itemResponse: ", itemResponse);
-	return <h1>New Page</h1>;
+	const router = useRouter();
+	const { id } = router.query;
+	return (
+		<>
+			<Head>
+				<title>Hacker New Reader</title>
+				<meta
+					name="description"
+					content="Hacker News Reader from https://hackernews.api-docs.io/"
+				/>
+				<link rel="icon" href="/favicon.ico" />
+			</Head>
+			{errorMessage && <h3>{errorMessage}</h3>}
+			<main className={styles.main}>
+				<Header />
+				<NewsItemList items={itemResponse} currentPage={+id} />
+			</main>
+		</>
+	);
 };
 
 export const getStaticProps = async (context) => {
