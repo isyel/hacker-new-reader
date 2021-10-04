@@ -61,7 +61,7 @@ export const getStaticPaths = async () => {
 	// const res = await fetch(`${server}/api/stories`);
 
 	const items = [];
-	const noOfPages = items.tempResponse.length / 30;
+	const noOfPages = items.tempResponse?.length || [] / 30;
 	let ids = [];
 
 	for (let i = 1; i <= noOfPages; i++) {
