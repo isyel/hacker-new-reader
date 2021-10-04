@@ -31,13 +31,13 @@ export const getStaticProps = async () => {
 	let itemResponse = [];
 	let errorMessage = "";
 	try {
-		const res = await fetch(`${server}/api/stories/1`);
-		response = await res.json();
-		for await (let itemId of response.tempResponse) {
-			const itemRes = await fetch(`${server}/api/item/${itemId}`);
-			const item = await itemRes.json();
-			itemResponse.push(item);
-		}
+		// const res = await fetch(`${server}/api/stories/1`);
+		// response = await res.json();
+		// for await (let itemId of response.tempResponse) {
+		// 	const itemRes = await fetch(`${server}/api/item/${itemId}`);
+		// 	const item = await itemRes.json();
+		// 	itemResponse.push(item);
+		// }
 	} catch (error) {
 		errorMessage = error.message;
 		console.log("errorMessage: ", error);
