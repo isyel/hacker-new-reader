@@ -1,11 +1,22 @@
 .header {
 	background-color: #ff6600;
-	height: 30px;
+	height: 25px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;
 	padding: 0px 0.3em;
+}
+
+.logo {
+	border: 1px solid white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.menu {
+	font-size: small;
 }
 
 .title {

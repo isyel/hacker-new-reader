@@ -6,12 +6,15 @@ const Header = () => {
 	return (
 		<div className={styles.header}>
 			<div className={styles.menulist}>
-				<Image
-					src="/hacker-news-logo.gif"
-					alt="Hacker News Logo"
-					width={18}
-					height={16}
-				/>
+				<div className={styles.logo}>
+					<Image
+						src="/hacker-news-logo.gif"
+						alt="Hacker News Logo"
+						width={16}
+						height={16}
+					/>
+				</div>
+
 				<span className={styles.title}>Hacker News</span>
 				{menu.map((menuItem, index) => (
 					<span key={index} className={styles.menu}>
@@ -19,7 +22,7 @@ const Header = () => {
 					</span>
 				))}
 			</div>
-			<span>login</span>
+			<span className={styles.menu}>login</span>
 		</div>
 	);
 };
